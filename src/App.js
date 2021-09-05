@@ -1,24 +1,32 @@
-import logo from './logo.svg';
-import './App.css';
-
+import { BrowserRouter as Router, Route, Switch } from 'react-router-dom';
+import { useState, useEffect } from 'react';
+import { useSelector, useDispatch } from 'react-redux';
+// pages
+import ProductsPage from './pages/ProductsPage';
+import ProductPage from './pages/ProductPage';
+import CartPage from './pages/CartPage';
+import ErrorPage from './pages/ErrorPage';
+// components
+import Navbar from './components/Navbar';
+import Loading from './components/Loading';
+import { fetchProducts } from './redux/reducers/productsReducer';
 function App() {
+  const dispatch = useDispatch();
+  useEffect(() => dispatch(fetchProducts()), [dispatch]);
+  const { loading } = useSelector((state) => state.products);
+  if (loading) {
+    return <Loading />;
+  }
   return (
-    <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.js</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
-    </div>
+    <Router>
+      <Navbar />
+      <Switch>
+        <Route path="/" exact component={ProductsPage} />
+        <Route path="/product/:id" component={ProductPage} />
+        <Route path="/cart" component={CartPage} />
+        <Route path="*" component={ErrorPage} />
+      </Switch>
+    </Router>
   );
 }
 
