@@ -77,7 +77,7 @@ const Form = () => {
           </select>
           <label htmlFor="category">Filter By</label>
         </div>
-        <div className="form-floating w-50">
+        <div className="form-floating w-50 me-3">
           <select
             className="form-select"
             value={options.sortOrder}
@@ -94,15 +94,15 @@ const Form = () => {
           </select>
           <label htmlFor="category">Sort By: </label>
         </div>
+        <input
+          type="text"
+          className="form-control w-50"
+          placeholder="Search for products"
+          onChange={onChange}
+          name="searchValue"
+          value={options.searchValue}
+        />
       </div>
-      <input
-        type="text"
-        className="form-control mt-3 w-50"
-        placeholder="Search for products"
-        onChange={onChange}
-        name="searchValue"
-        value={options.searchValue}
-      />
     </form>
   );
 };
