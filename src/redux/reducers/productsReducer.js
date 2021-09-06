@@ -18,10 +18,7 @@ const productsSlice = createSlice({
     displayedProducts: [],
   },
   reducers: {
-    filterProducts: (state, action) => {
-      state.displayedProducts = action.payload;
-    },
-    sortProducts: (state, action) => {
+    changeProducts: (state, action) => {
       state.displayedProducts = action.payload;
     },
   },
@@ -40,5 +37,5 @@ const productsSlice = createSlice({
   },
 });
 
-export const { filterProducts, sortProducts } = productsSlice.actions;
+export const { changeProducts } = productsSlice.actions;
 export default productsSlice.reducer;

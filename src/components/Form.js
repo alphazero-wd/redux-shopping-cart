@@ -1,9 +1,6 @@
 import { useEffect, useState } from 'react';
 import { useSelector } from 'react-redux';
-import {
-  filterProducts,
-  sortProducts,
-} from '../redux/reducers/productsReducer';
+import { changeProducts } from '../redux/reducers/productsReducer';
 import { useDispatch } from 'react-redux';
 const Form = () => {
   const { products } = useSelector((state) => state.products);
@@ -55,8 +52,7 @@ const Form = () => {
       default:
         break;
     }
-    dispatch(filterProducts(results));
-    dispatch(sortProducts(results));
+    dispatch(changeProducts(results));
   };
 
   useEffect(() => {
