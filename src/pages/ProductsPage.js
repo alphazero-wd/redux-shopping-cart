@@ -8,11 +8,13 @@ const ProductsPage = () => {
     <section className="my-5">
       <div className="container">
         <h1 className="lead text-center fs-1 fw-medium">Products</h1>
-        <Form />
-        <div className="row g-4">
-          {displayedProducts.map((product) => (
-            <Product key={product.id} {...product} />
-          ))}
+        <div className="d-xl-flex justify-content-between mt-5">
+          <Form />
+          <div className="row g-4">
+            {displayedProducts.map((product) => (
+              <Product key={product.id} {...product} />
+            ))}
+          </div>
         </div>
       </div>
     </section>

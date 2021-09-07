@@ -59,9 +59,9 @@ const Form = () => {
     updateProducts();
   }, [options]);
   return (
-    <form className="form my-5">
-      <div className="my-2 d-flex justify-content-center align-items-center">
-        <div className="form-floating w-50 me-3">
+    <form className="form mb-5 me-5 w-100">
+      <div>
+        <div className="form-floating mb-3">
           <select
             className="form-select"
             value={options.category}
@@ -77,7 +77,7 @@ const Form = () => {
           </select>
           <label htmlFor="category">Filter By</label>
         </div>
-        <div className="form-floating w-50 me-3">
+        <div className="form-floating mb-3">
           <select
             className="form-select"
             value={options.sortOrder}
@@ -96,7 +96,7 @@ const Form = () => {
         </div>
         <input
           type="text"
-          className="form-control w-50"
+          className="form-control w-100"
           placeholder="Search for products"
           onChange={onChange}
           name="searchValue"
